@@ -1,0 +1,35 @@
+{
+  "name": "find-back",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "http-errors": "^1.6.3",
+    "mongodb": "^3.5.3",
+    "mongoose": "^5.9.0",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-custom": "^1.1.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2"
+  },
+  "main": ".eslintrc.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
