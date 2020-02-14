@@ -21,7 +21,7 @@ module.exports = {
 		'arrow-parens': ['error', 'always'],
 		'array-element-newline': ['error', { multiline: true }],
 		indent: ['error', 'tab'],
-		'linebreak-style': ['error', 'windows'],
+		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
 		'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
