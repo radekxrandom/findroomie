@@ -19,10 +19,12 @@ exports.signup = [
 			await new user({
 				username: req.body.username,
 				password: hashedPass,
-				email: req.body.email ? req.body.email : 'none'
+				email: req.body.email
 			}).save();
+			console.log('suc');
 			res.json('Succes');
 		} catch (err) {
+			console.log('you suck');
 			res.json('Somethings wrong');
 		}
 	}
