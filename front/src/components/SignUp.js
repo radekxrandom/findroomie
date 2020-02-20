@@ -13,6 +13,15 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios';
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Redirect,
+	useHistory,
+	useLocation
+} from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class SignUp extends Component {
 	constructor(props) {
@@ -31,7 +40,7 @@ class SignUp extends Component {
 		});
 	};
 
-	handleSubmit = (e) => {
+	handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const { username, password, email } = this.state;
@@ -42,12 +51,12 @@ class SignUp extends Component {
 			email
 		};
 
-		axios
-			.post('http://localhost:9000/api/signup', user)
-			.then(() => console.log('Book Created'))
-			.catch((err) => {
-				console.error(err);
-			});
+		let po = await axios.post('http://localhost:9000/api/signup', user);
+		console.log(`Status code: ${po.status}`);
+		console.log(`Status text: ${po.statusText}`);
+		console.log(`Request method: ${po.request.method}`);
+		console.log(`Path: ${po.request.path}`);
+		history.push('/');
 	};
 
 	render() {

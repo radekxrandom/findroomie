@@ -3,15 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var CustomStrategy = require('passport-custom').Strategy;
 var bodyParser = require('body-parser');
 var cors = require('cors');
-
-var indexRouter = require('./routes/index');
 
 var app = express();
 const nunjucks = require('nunjucks');
@@ -21,7 +18,7 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 });
 var mongoose = require('mongoose');
 var mongoDB =
-  'mongodb+srv://getpies:pervmoj123@cluster0-wdadp.mongodb.net/now?retryWrites=true&w=majority';
+	'mongodb+srv://getpies:pervmoj123@cluster0-wdadp.mongodb.net/now?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, {
 	useNewUrlParser: true
 });
@@ -36,8 +33,14 @@ app.set('view engine', 'html');
 app.set('view cache', false);
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.json());
+//app.use(express.urlencoded({ extended: false }));
+app.use(
+	bodyParser.urlencoded({
+		extended: false
+	})
+);
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -55,7 +58,6 @@ require('./config/passport.js')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 var apiRouter = require('./routes/api')(app, express, passport);
-app.use('/', indexRouter);
 app.use('/api', apiRouter);
 
 app.use((req, res, next) => {

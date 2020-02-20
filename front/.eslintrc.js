@@ -8,6 +8,7 @@ module.exports = {
 		Atomics: 'readonly',
 		SharedArrayBuffer: 'readonly'
 	},
+	parser: 'babel-eslint',
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true
@@ -21,7 +22,7 @@ module.exports = {
 		'arrow-parens': ['error', 'always'],
 		'array-element-newline': ['error', { multiline: true }],
 		indent: ['error', 'tab'],
-		'linebreak-style': ['error', 'unix'],
+		'linebreak-style': ['error', 'windows'],
 		quotes: ['error', 'single'],
 		semi: ['error', 'always'],
 		'prefer-arrow-callback': ['error', { allowNamedFunctions: true }],
