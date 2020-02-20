@@ -80,6 +80,13 @@ class Up extends Component {
 */
 		return (
 			<Container component="main" maxWidth="xs">
+				<Button
+					style={{ margin: '0.5%', position: 'absolute', left: '0' }}
+					variant="contained"
+					href="/"
+				>
+					&larr; Go back
+				</Button>
 				<CssBaseline />
 				<div
 					style={{

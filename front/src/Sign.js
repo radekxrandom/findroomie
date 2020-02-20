@@ -66,6 +66,13 @@ class Sign extends Component {
 	render() {
 		return (
 			<Container component="main" maxWidth="xs">
+				<Button
+					style={{ margin: '0.5%', position: 'absolute', left: '0' }}
+					variant="contained"
+					href="/"
+				>
+					&larr; Go back
+				</Button>
 				<CssBaseline />
 				<div
 					style={{
@@ -136,7 +143,7 @@ class Sign extends Component {
 							</Grid>
 							<Grid item>
 								<Link href="#" variant="body2">
-									{'Don\'t have an account? Sign Up'}
+									{"Don't have an account? Sign Up"}
 								</Link>
 							</Grid>
 						</Grid>

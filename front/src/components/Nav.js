@@ -29,7 +29,9 @@ const Nav = (props) => {
 				<AppBar position="static">
 					<Toolbar>
 						<Typography variant="h6" className={classes.title}>
-							znajdź współlokatora!
+							<a style={{ textDecoration: 'none', color: 'white' }} href="/">
+								znajdź współlokatora!{' '}
+							</a>
 						</Typography>
 
 						<Button
@@ -56,8 +58,10 @@ const Nav = (props) => {
 			<>
 				<AppBar position="static">
 					<Toolbar>
-						<Typography variant="h6" className={classes.title}>
-							znajdź współlokatora!
+						<Typography variant="h6" href="/" className={classes.title}>
+							<a style={{ textDecoration: 'none', color: 'white' }} href="/">
+								znajdź współlokatora!
+							</a>
 						</Typography>
 						<Button
 							href="/add"
