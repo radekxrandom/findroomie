@@ -59,10 +59,25 @@ const Nav = (props) => {
 				<AppBar position="static">
 					<Toolbar>
 						<Typography variant="h6" href="/" className={classes.title}>
-							<a style={{ textDecoration: 'none', color: 'white' }} href="/">
+							<a
+								style={{
+									textDecoration: 'none',
+									color: 'white',
+									fontSize: '2rem !important'
+								}}
+								href="/"
+							>
 								znajdź współlokatora!
 							</a>
 						</Typography>
+						<Button
+							variant="contained"
+							href="/ads"
+							style={{ margin: '0.5%', backgroundColor: '#2FB827 ' }}
+							color="primary"
+						>
+							Zobacz wszystkie ogloszenia
+						</Button>
 						<Button
 							href="/add"
 							style={{ margin: '0.5%' }}

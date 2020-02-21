@@ -62,15 +62,22 @@ class Add extends Component {
 
 	handleSubmit = async (e) => {
 		e.preventDefault();
-		const { title, body, mobile, file } = this.state;
-		const data = {
+		const { typeofadd, title, message, mobile, selectedFile } = this.state;
+		/*	const data = {
 			title,
 			body,
 			mobile,
 			file
-		};
-		let post = await axios.post('https://localhost:9000/api/add', data);
+		}; */
+		let formData = new FormData();
+		formData.append('title', title);
+		formData.append('message', message);
+		formData.append('mobile', mobile);
+		formData.append('selectedFile', selectedFile);
+		formData.append('typeofadd', typeofadd);
+		let post = await axios.post('http://localhost:9000/api/add', formData);
 		console.log(post.status);
+		console.log(post.res);
 	};
 	showForm = (i) => {
 		this.setState({
@@ -144,7 +151,7 @@ class Add extends Component {
 								}}
 							>
 								<div className="form-area">
-									<form role="form" onSubmit={this.handleSubmit}>
+									<form onSubmit={this.handleSubmit}>
 										<br style={{ clear: 'both' }} />
 										<h3
 											style={{
@@ -203,7 +210,7 @@ class Add extends Component {
 										</div>
 										<button
 											style={{ margin: '2%' }}
-											type="button"
+											type="submit"
 											id="submit"
 											name="submit"
 											className="btn btn-primary pull-right"
@@ -299,7 +306,7 @@ class Add extends Component {
 										</div>
 										<button
 											style={{ margin: '2%' }}
-											type="button"
+											type="submit"
 											id="submit"
 											name="submit"
 											className="btn btn-primary pull-right"

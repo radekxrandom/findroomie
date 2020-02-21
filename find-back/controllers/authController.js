@@ -54,6 +54,7 @@ exports.signin = async (req, res, next) => {
 		return res.status(400).json(errors);
 	}
 	let us = await user.findOne({ username: req.body.username });
+	req.currentUser = us;
 	if (!us) {
 		return res.status(400).json('Wrong username');
 	}

@@ -6,6 +6,8 @@ import Main from './Main';
 import Sign from './Sign';
 import Up from './Up';
 import Add from './Add';
+import Ads from './Ads';
+import Ad from './Ad';
 import { Provider } from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';
@@ -38,6 +40,8 @@ const App = () => {
 						<Route path="/signup" component={Up} />
 						<Route path="/signin" component={Sign} />
 						<Route path="/add" component={Add} />
+						<Route path="/ads" component={Ads} />
+						<Route path="/ad/:uid" component={Ad} />
 						<Route path="/" component={Main} />
 					</Switch>
 				</Router>

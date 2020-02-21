@@ -13,6 +13,27 @@
   }
 }
 
+a.list-group-item {
+  height: auto;
+  min-height: 220px;
+}
+
+a.list-group-item.active small {
+  color: #fff;
+}
+
+.MuiTypography-h6 {
+  font-size: 2rem !important;
+}
+
+.stars {
+  margin: 20px auto 1px;
+}
+
+.MuiButton-root {
+  font-size: inherit !important;
+}
+
 .form-area {
   padding: 10px 40px 60px;
   margin: 10px 0px 60px;

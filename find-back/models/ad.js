@@ -3,11 +3,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var AdSchema = new Schema({
+	type: {
+		type: String,
+		required: true
+	},
 	title: {
 		type: String,
 		required: true
 	},
-	body: {
+	message: {
 		type: String,
 		required: true
 	},
@@ -16,11 +20,10 @@ var AdSchema = new Schema({
 		required: false
 	},
 	user: {
-		type: Schema.Types.ObjectId,
-		ref: 'User',
+		type: String,
 		required: true
 	},
-	image: { type: Schema.Types.ObjectId, ref: 'Image' }
+	img: { type: String, required: false }
 });
 
 module.exports = mongoose.model('Ad', AdSchema);

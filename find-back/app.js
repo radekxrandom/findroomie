@@ -9,6 +9,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var CustomStrategy = require('passport-custom').Strategy;
 var bodyParser = require('body-parser');
 var cors = require('cors');
+const uuidv4 = require('uuid/v4');
+var multer = require('multer');
+var auth = require('./controllers/authController');
+var Ad = require('./models/ad');
 
 var app = express();
 const nunjucks = require('nunjucks');
@@ -25,7 +29,7 @@ mongoose.connect(mongoDB, {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-app.use(express.static('static'));
+app.use('/static', express.static('public'));
 app.disable('etag');
 app.use(cors());
 
@@ -43,7 +47,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 app.use(
 	session({
 		secret: 'passport-tutorial',
@@ -54,6 +58,21 @@ app.use(
 		saveUninitialized: false
 	})
 );
+
+/* app.post('/api/add', upload.single('selectedFile'), async (req, res) => {
+	try {
+		await new Ad({
+			title: req.body.title,
+			message: req.body.message,
+			mobile: req.body.mobile,
+			img: req.file.filename,
+			user: 'pies'
+		}).save();
+		return res.status(200).json('Ok boomer');
+	} catch (err) {
+		return res.status(400).json('Wrong');
+	}
+}); */
 require('./config/passport.js')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
