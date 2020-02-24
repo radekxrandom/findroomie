@@ -14,6 +14,10 @@ var UserSchema = new Schema({
 	email: {
 		type: String,
 		reuired: false
+	},
+	reset: {
+		type: String,
+		required: false
 	}
 });
 

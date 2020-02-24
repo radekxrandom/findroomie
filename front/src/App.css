@@ -13,6 +13,10 @@
   }
 }
 
+.MuiContainer-root MuiContainer-maxWidthXs {
+  font-size: 1rem;
+}
+
 a.list-group-item {
   height: auto;
   min-height: 220px;

@@ -25,5 +25,7 @@ module.exports = function(app, express, passport) {
 	router.post('/add', upload.single('selectedFile'), ad.adpost);
 	router.get('/ads', ad.adget);
 	router.get('/single/:uid', ad.singleadget);
+	router.post('/sentcode', auth.sentcode);
+	router.post('/resetpwd', auth.resetpwd);
 	return router;
 };

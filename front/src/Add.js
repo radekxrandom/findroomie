@@ -106,7 +106,7 @@ class Add extends Component {
 						>
 							<center>
 								<p style={{ color: 'white', fontSize: '2rem' }}>
-									JAKI RODZAJ OGLOSZENIA CHCESZ DODAC?
+									Czego szukasz?
 								</p>
 								<Button
 									onClick={(e) => this.showForm(1)}
