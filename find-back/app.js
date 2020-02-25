@@ -21,8 +21,7 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 	express: app
 });
 var mongoose = require('mongoose');
-var mongoDB =
-	'mongodb+srv://getpies:pervmoj123@cluster0-wdadp.mongodb.net/now?retryWrites=true&w=majority';
+var mongoDB = 'not here';
 mongoose.connect(mongoDB, {
 	useNewUrlParser: true
 });
@@ -50,7 +49,7 @@ app.use(cookieParser());
 app.use(express.static('public'));
 app.use(
 	session({
-		secret: 'passport-tutorial',
+		secret: 'not here',
 		cookie: {
 			maxAge: 60000
 		},

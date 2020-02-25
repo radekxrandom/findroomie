@@ -9,19 +9,19 @@ const jwt = require('jsonwebtoken');
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'trwaloscteraz@gmail.com',
-		pass: 'placek123'
+		user: 'nothere@gmail.com',
+		pass: 'nothere'
 	}
 });
 
 exports.sentcode = async (req, res) => {
 	let usr = await user.findOne({ email: req.body.email });
 	if (!usr) {
-		return res.json({ err: "There's no user with such email", status: '1' });
+		return res.json({ err: 'There\'s no user with such email', status: '1' });
 	} else {
 		let code = uuidv4();
 		var mailOptions = {
-			from: 'trwaloscteraz@gmail.com',
+			from: 'nothere@gmail.com',
 			to: req.body.email,
 			subject: 'Password reset request',
 			text: code
@@ -42,7 +42,7 @@ exports.resetpwd = async (req, res) => {
 	if (req.body.case === '0') {
 		let usr = await user.findOne({ email: req.body.email });
 		if (!usr) {
-			return res.json({ err: "There's no user with such email", status: '1' });
+			return res.json({ err: 'There\'s no user with such email', status: '1' });
 		}
 		return res.json({ mes: 'user found', status: '0' });
 	} else if (req.body.case === '1') {
@@ -66,7 +66,7 @@ exports.resetpwd = async (req, res) => {
 };
 
 exports.userprofileget = async (req, res) => {
-	let respons = await jwt.verify(req.token, 'secretkey');
+	let respons = await jwt.verify(req.token, 'nothere');
 	if (!respons) {
 		return res.status(400).json({ err: 'Wront token' });
 	}
@@ -78,7 +78,7 @@ exports.userprofileget = async (req, res) => {
 };
 
 exports.userprofileupdate = async (req, res) => {
-	let respons = await jwt.verify(req.token, 'secretkey');
+	let respons = await jwt.verify(req.token, 'nothere');
 	if (!respons) {
 		return res.status(400).json({ err: 'Wront token' });
 	}
@@ -91,7 +91,7 @@ exports.userprofileupdate = async (req, res) => {
 };
 
 exports.pwdchange = async (req, res) => {
-	let respons = await jwt.verify(req.token, 'secretkey');
+	let respons = await jwt.verify(req.token, 'nothere');
 	if (!respons) {
 		return res.status(200).json({ err: 'Zly token' });
 	}
