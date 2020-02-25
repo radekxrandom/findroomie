@@ -34,7 +34,8 @@ class Up extends Component {
 		this.state = {
 			username: '',
 			password: '',
-			email: ''
+			email: '',
+			error: ''
 		};
 	}
 	componentWillReceiveProps(nextProps) {
@@ -72,7 +73,9 @@ class Up extends Component {
 			redirect: true
 		});*/
 	};
-
+	goToMain = () => {
+		this.props.history.push('/');
+	};
 	render() {
 		/*	if (this.state.redirect === true) {
 			return <Redirect to="/" />;
@@ -83,7 +86,7 @@ class Up extends Component {
 				<Button
 					style={{ margin: '0.5%', position: 'absolute', left: '0' }}
 					variant="contained"
-					href="/"
+					onClick={this.goToMain}
 				>
 					&larr; Go back
 				</Button>

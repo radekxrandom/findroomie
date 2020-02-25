@@ -18,6 +18,22 @@ var UserSchema = new Schema({
 	reset: {
 		type: String,
 		required: false
+	},
+	mobile: {
+		type: String,
+		reuired: false
+	},
+	address: {
+		type: String,
+		reuired: false
+	},
+	about: {
+		type: String,
+		reuired: false
+	},
+	lookingfor: {
+		type: String,
+		reuired: false
 	}
 });
 

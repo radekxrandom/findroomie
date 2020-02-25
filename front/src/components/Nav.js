@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,7 +8,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1
@@ -22,27 +23,43 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Nav = (props) => {
+	const node = useRef();
+	const secnode = useRef();
+	const [show, setShow] = useState(false);
+	const dropdown = () => {
+		setShow(!show);
+	};
 	const classes = useStyles();
+	{
+		/*	const handleClick = (e) => {
+		if (node.current.contains(e.target)) {
+			// inside click
+			return;
+		}
+	}; */
+	}
 	if (!props.auth.isAuthenticated) {
 		return (
 			<>
 				<AppBar position="static">
 					<Toolbar>
 						<Typography variant="h6" className={classes.title}>
-							<a style={{ textDecoration: 'none', color: 'white' }} href="/">
+							<Link style={{ textDecoration: 'none', color: 'white' }} to="/">
 								znajdź współlokatora!{' '}
-							</a>
+							</Link>
 						</Typography>
 
 						<Button
-							href="/signup"
+							component={Link}
+							to={'/signup'}
 							style={{ margin: '0.5%' }}
 							variant="contained"
 						>
 							Zarejestruj się
 						</Button>
 						<Button
-							href="/signin"
+							component={Link}
+							to={'/signin'}
 							style={{ margin: '0.5%' }}
 							variant="contained"
 							color="secondary"
@@ -59,42 +76,87 @@ const Nav = (props) => {
 				<AppBar position="static">
 					<Toolbar>
 						<Typography variant="h6" href="/" className={classes.title}>
-							<a
+							<Link
+								to="/"
 								style={{
 									textDecoration: 'none',
 									color: 'white',
 									fontSize: '2rem !important'
 								}}
-								href="/"
 							>
 								znajdź współlokatora!
-							</a>
+							</Link>
 						</Typography>
+
 						<Button
 							variant="contained"
-							href="/ads"
-							style={{ margin: '0.5%', backgroundColor: '#2FB827 ' }}
+							style={{ margin: '0.5%', backgroundColor: '#2FB827' }}
 							color="primary"
+							component={Link}
+							to={'/ads'}
 						>
 							Zobacz wszystkie ogloszenia
 						</Button>
+
 						<Button
-							href="/add"
+							component={Link}
+							to={'/add'}
 							style={{ margin: '0.5%' }}
 							variant="contained"
 							color="secondary"
 						>
 							Dodaj ogloszenie
 						</Button>
-						<Button
-							style={{ margin: '0.5%' }}
-							variant="contained"
-							onClick={props.onClick}
-						>
-							Wyloguj się
-						</Button>
+
+						<ArrowDropDownIcon
+							className="dropIcon"
+							color="action"
+							style={{ fontSize: '60', marginLeft: '2%', marginRight: '1%' }}
+							onClick={dropdown}
+						/>
 					</Toolbar>
 				</AppBar>
+				{show && (
+					<div
+						className="dropDiv"
+						style={{
+							position: 'absolute',
+							color: 'white',
+							textAlign: 'center',
+							right: '1%',
+							fontSize: '20px'
+						}}
+					>
+						<ul
+							className="dropUl"
+							style={{
+								listStyleType: 'none',
+								border: 'solid',
+								borderLeft: 'none',
+								borderRight: 'none',
+								borderBottomRightRadius: '5px',
+								borderBottomLeftRadius: '5px',
+								paddingInlineStart: '0 ',
+								width: '112%',
+								backgroundColor: ' #3f51b5',
+								fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif'
+							}}
+						>
+							<Link to={`user/${props.auth.user.data.id}`}>
+								<li
+									className="dropLi"
+									style={{ borderBottom: 'solid' }}
+									component={Link}
+								>
+									PROFIL
+								</li>
+							</Link>
+							<li className="dropLi" onClick={props.onClick}>
+								WYLOGUJ SB
+							</li>
+						</ul>
+					</div>
+				)}
 			</>
 		);
 	}

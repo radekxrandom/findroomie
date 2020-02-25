@@ -32,7 +32,8 @@ class Reset extends Component {
 		this.state = {
 			email: '',
 			pageShown: 0,
-			password: ''
+			password: '',
+			error: ''
 		};
 	}
 	handleInputChange = (e) => {
@@ -51,11 +52,16 @@ class Reset extends Component {
 		let post = await axios.post('http://localhost:9000/api/sentcode', dull);
 		console.log(post.status);
 		console.log(post.data);
-	};
-	goFurther = () => {
-		this.setState({
-			pageShown: 1
-		});
+		let resp = post.data;
+		if (resp.err) {
+			this.setState({
+				error: resp.err
+			});
+		} else {
+			this.setState({
+				pageShown: 1
+			});
+		}
 	};
 
 	handlePwdChange = async (e) => {
@@ -69,10 +75,17 @@ class Reset extends Component {
 			};
 			let pos = await axios.post('http://localhost:9000/api/resetpwd', form);
 			console.log(pos.data);
+			let resp = pos.data;
+			if (resp.err) {
+				this.setState({
+					error: resp.err
+				});
+			} else {
+				this.setState({
+					pageShown: 2
+				});
+			}
 			console.log(pos.status);
-			this.setState({
-				pageShown: 2
-			});
 		} else if (this.state.pageShown == 2) {
 			const { email, code, password } = this.state;
 			let form = {
@@ -84,6 +97,12 @@ class Reset extends Component {
 			let pos = await axios.post('http://localhost:9000/api/resetpwd', form);
 			console.log(pos.data);
 			console.log(pos.status);
+			let resp = pos.data;
+			if (resp.err) {
+				this.setState({
+					error: resp.err
+				});
+			}
 			this.props.history.push('/');
 		}
 	};
@@ -115,6 +134,11 @@ class Reset extends Component {
 						>
 							<LockOutlinedIcon />
 						</Avatar>
+						{this.state.error ? (
+							<Typography component="h1" variant="h5">
+								{this.state.error}
+							</Typography>
+						) : null}
 						<Typography component="h1" variant="h5">
 							Zapomniales hasla? Podaj swoj adres e-mail a wyslemy ci kod
 							resetujacy je.
@@ -144,17 +168,6 @@ class Reset extends Component {
 								style={{ margin: '3, 0, 5%, 4' }}
 							>
 								Reset
-							</Button>
-							<br />
-							<Button
-								type="submit"
-								fullWidth
-								variant="contained"
-								color="primary"
-								style={{ margin: '3, 0, 2' }}
-								onClick={this.goFurther}
-							>
-								Idz dalej
 							</Button>
 						</form>
 					</div>
@@ -187,6 +200,11 @@ class Reset extends Component {
 						>
 							<LockOutlinedIcon />
 						</Avatar>
+						this.state.error ?{' '}
+						<Typography component="h1" variant="h5">
+							{this.state.error}
+						</Typography>{' '}
+						: null
 						<Typography component="h1" variant="h5">
 							Podaj kod wyslany na twoj email.
 						</Typography>
@@ -259,6 +277,11 @@ class Reset extends Component {
 						>
 							<LockOutlinedIcon />
 						</Avatar>
+						this.state.error ?{' '}
+						<Typography component="h1" variant="h5">
+							{this.state.error}
+						</Typography>{' '}
+						: null
 						<Typography component="h1" variant="h5">
 							Podaj nowe haslo.
 						</Typography>

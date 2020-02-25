@@ -5,7 +5,7 @@ module.exports = function(app, express, passport) {
 	const uuidv4 = require('uuid/v4');
 	const path = require('path');
 	var multer = require('multer');
-
+	var useractions = require('../controllers/UserActionsController');
 	var storage = multer.diskStorage({
 		destination: function(req, file, cb) {
 			cb(null, 'public');
@@ -16,6 +16,20 @@ module.exports = function(app, express, passport) {
 		}
 	});
 
+	const checkToken = (req, res, next) => {
+		const header = req.headers['authorization'];
+
+		if (typeof header !== 'undefined') {
+			const bearer = header.split(' ');
+			const token = bearer[1];
+
+			req.token = token;
+			next();
+		} else {
+			//If header is undefined return Forbidden (403)
+			res.sendStatus(403);
+		}
+	};
 	var upload = multer({ storage: storage });
 
 	router.post('/signup', auth.signup);
@@ -25,7 +39,10 @@ module.exports = function(app, express, passport) {
 	router.post('/add', upload.single('selectedFile'), ad.adpost);
 	router.get('/ads', ad.adget);
 	router.get('/single/:uid', ad.singleadget);
-	router.post('/sentcode', auth.sentcode);
-	router.post('/resetpwd', auth.resetpwd);
+	router.post('/sentcode', useractions.sentcode);
+	router.post('/resetpwd', useractions.resetpwd);
+	router.get('/user/:id', checkToken, useractions.userprofileget);
+	router.post('/user/:id', checkToken, useractions.userprofileupdate);
+	router.post('/pwdchange', checkToken, useractions.pwdchange);
 	return router;
 };

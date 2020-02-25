@@ -44,6 +44,9 @@ class Ad extends Component {
 	logout = () => {
 		this.props.logoutUser();
 	};
+	goToMain = () => {
+		this.props.history.push('/');
+	};
 	render() {
 		return (
 			<>
@@ -51,7 +54,7 @@ class Ad extends Component {
 				<Button
 					style={{ margin: '0.5%', position: 'absolute', left: '0' }}
 					variant="contained"
-					href="/ads"
+					onClick={this.goToMain}
 				>
 					&larr; Go back
 				</Button>

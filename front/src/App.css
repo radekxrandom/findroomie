@@ -13,13 +13,106 @@
   }
 }
 
-.MuiContainer-root MuiContainer-maxWidthXs {
-  font-size: 1rem;
+html {
+  font-size: 14px !important;
+}
+
+body {
+  font-size: 1rem !important;
+}
+
+.profile {
+  margin: auto;
+  border-radius: 5px;
+  background-color: #F3F3F3;
+  color: black;
+  width: 50%;
+  height: 55rem;
+}
+
+.popup-content {
+  width: 30% !important;
+  border-radius: 5px !important;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  height: 2rem;
+  padding-bottom: 2.5rem;
+}
+
+.activetab {
+  border-bottom: none !important;
+  background: #F3F3F3 !important;
+}
+
+.activetab:hover {
+  background: #F3F3F3 !important;
+}
+
+.tab:hover {
+  cursor: pointer;
+  background: #E9E9E9;
+}
+
+#tab0, #tab1 {
+  border-right: solid 0.5px;
+}
+
+.nd {
+  margin: 5% !important;
+}
+
+.tab {
+  border-bottom: solid 0.5px;
+  width: 100%;
+  padding-top: 0.5rem;
+  height: 2.5rem;
+  background: #D9D9D9;
+}
+
+.mod {
+  margin-top: 2%;
+}
+
+.ber:hover {
+  opacity: 0.8 !important;
+}
+
+.lodal {
+  text-align: center !important;
+  padding-top: 2% !important;
+}
+
+.form-area {
+  padding: 0;
+  width: 220%;
+}
+
+.form-group {
+  margin-bottom: 5%;
+}
+
+.lab {
+  margin-right: 1.5%;
+}
+
+.form-control {
+  width: 50%;
+  display: inline-block;
 }
 
 a.list-group-item {
   height: auto;
   min-height: 220px;
+}
+
+.profilefields {
+  display: inline-block;
+  margin-top: 1.5%;
+  font-size: 1.2rem;
 }
 
 a.list-group-item.active small {
@@ -32,6 +125,17 @@ a.list-group-item.active small {
 
 .stars {
   margin: 20px auto 1px;
+}
+
+.dropIcon:hover {
+  color: white;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.dropLi:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .MuiButton-root {

@@ -31,7 +31,8 @@ class Sign extends Component {
 
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			error: ''
 		};
 	}
 	componentWillReceiveProps(nextProps) {
@@ -62,14 +63,16 @@ class Sign extends Component {
 		};
 		this.props.loginUser(user);
 	};
-
+	goToMain = () => {
+		this.props.history.push('/');
+	};
 	render() {
 		return (
 			<Container component="main" maxWidth="xs">
 				<Button
 					style={{ margin: '0.5%', position: 'absolute', left: '0' }}
 					variant="contained"
-					href="/"
+					onClick={this.goToMain}
 				>
 					&larr; Go back
 				</Button>

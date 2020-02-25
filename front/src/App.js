@@ -8,6 +8,7 @@ import Up from './Up';
 import Add from './Add';
 import Ads from './Ads';
 import Ad from './Ad';
+import User from './User';
 import Reset from './Reset';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -44,6 +45,7 @@ const App = () => {
 						<Route path="/ads" component={Ads} />
 						<Route path="/ad/:uid" component={Ad} />
 						<Route path="/resetpwd" component={Reset} />
+						<Route path="/user/:id" component={User} />
 						<Route path="/" component={Main} />
 					</Switch>
 				</Router>
