@@ -21,7 +21,7 @@ Afterwards one can post his offer.
 ![sc](https://i.imgur.com/cfzKEgV.jpg)
 
 Login page
-![sc](https://i.imgur.com/WruEUxN.png)
+![sc](https://i.imgur.com/qLn89TG.png)
 
 If someone forgets theirs password, there is an option to reset it
 ![sc](https://i.imgur.com/EBuEk7a.png)
