@@ -11,8 +11,8 @@ User profile page:
 No need to reload page to save changes.
 ![sc](https://i.imgur.com/Lrd0Ekq.png)
 
-Dropdown menu:
-![](https://i.imgur.com/xBOoNiE.gif)
+Dropdown menu:  
+![Dropdown](https://i.imgur.com/xBOoNiE.gif)
 
 When one wants to add an offer, first one needs to choose the type of offer, ie who is he looking for.
 ![sc](https://i.imgur.com/1ZC7kxB.jpg)
