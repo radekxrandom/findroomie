@@ -1,4 +1,4 @@
-### FindRoommate
+# FindRoommate
 FindRoomate, a website that will change how you find roommates. FindRoommate will help you connect with your potentional next roommate with a single, simple to navigate, and intuitive web page.
 *FindRoomate is currently under devolopment.*
 
@@ -21,13 +21,13 @@ FindRoommate was built using Mongoose, React, and Express with the user's experi
 Users can expect an aesthetic and simple experience while using FindRoommate. 
 Examples of this are our dropdown menus, streamlined offer postings, simple login page, and options in case a user loses their login.
 
-# Homepage
+## Homepage
 
 On our homepage, users can right away search for their ideal housing needs or post there housing opportunities for others.
 
 ![sc](https://i.imgur.com/kjYOrc9.jpg)
 
-# User Profiles:
+## User Profiles:
 
 Users can set up their profiles with a little information about themselves, contact info, and current locations. 
 This can be used by others to vet potential roommmates for compatibility.
@@ -35,27 +35,27 @@ Changes made to this form will be saved automatically with no need for reloading
 
 ![sc](https://i.imgur.com/Wt1zWyg.jpg)
 
-# Dropdown Menus
+## Dropdown Menus
 
 Our animated dropdown menus:
 
 ![Dropdown](https://i.imgur.com/xBOoNiE.gif)
 
-# Streamlined Posting:
+## Streamlined Posting:
 
 ![sc](https://i.imgur.com/cfzKEgV.jpg)
 
-# Login Page:
+## Login Page:
 
 ![sc](https://i.imgur.com/qLn89TG.png)
 
-# Password Assistance
+## Password Assistance
 
 If someone forgets theirs password, there is an option to reset it:
 
 ![sc](https://i.imgur.com/EBuEk7a.png)
 
-## Help
+# Help
 
 ---
 
