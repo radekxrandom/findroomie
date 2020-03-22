@@ -5,12 +5,12 @@ FindRoomate, a website that will change how you find roommates. FindRoommate wil
 ## Table of contents
 
 - [UX](#ux)
-	-[Homepage](homepage)
-	-[User Profiles](user-profiles)
-	-[Dropdown Menus](dropdown-menus)
-	-[Streamlined Posting](streamlined-posting)
-	-[Login Page](login-page)
-	-[Password Assistance](password-assistance)
+	-[Homepage](#homepage)
+	-[User Profiles](#user-profiles)
+	-[Dropdown Menus](#dropdown-menus)
+	-[Streamlined Posting](#streamlined-posting)
+	-[Login Page](#login-page)
+	-[Password Assistance](#password-assistance)
 -[Help](help)
 
 ---
